@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seguidores — Analisador de Instagram</title>
+<meta name="description" content="Analise informações públicas de perfis do Instagram em uma interface simples.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><span class="brand-mark">◎</span><span>Seguidores</span></div>
+  <nav>
+    <button class="nav active" data-view="dashboard">⌂ <span>Painel</span></button>
+    <button class="nav" data-view="new">＋ <span>Nova análise</span></button>
+    <button class="nav" data-view="history">◷ <span>Histórico</span></button>
+  </nav>
+  <div class="side-bottom"><div class="free-badge">GRÁTIS</div><small>Plataforma própria • sem assinatura</small></div>
+</aside>
+<main>
+<header><button id="menu" class="mobile-menu">☰</button><div><div class="eyebrow">PAINEL</div><h1 id="pageTitle">Visão geral</h1></div><div class="avatar">U</div></header>
+<section id="dashboard" class="view active">
+  <div class="hero"><div><span class="pill">● acesso gratuito</span><h2>Analise um perfil público</h2><p>Informe um nome de usuário para consultar informações públicas disponíveis.</p><button class="primary" onclick="showView('new')">＋ Nova análise</button></div><div class="hero-icon">◎</div></div>
+  <div class="stats"><div><span>Análises realizadas</span><strong id="statAnalyses">0</strong></div><div><span>Perfis processados</span><strong id="statProfiles">0</strong></div><div><span>Exportações</span><strong id="statExports">0</strong></div></div>
+  <div class="card"><div class="card-head"><div><h3>Como funciona</h3><p>Três passos para consultar dados públicos.</p></div></div><div class="steps"><div><b>01</b><strong>Informe o perfil</strong><span>Digite @usuario.</span></div><div><b>02</b><strong>Inicie a análise</strong><span>O sistema prepara os dados disponíveis.</span></div><div><b>03</b><strong>Veja e exporte</strong><span>Organize os resultados em CSV.</span></div></div></div>
+</section>
+<section id="new" class="view">
+  <div class="card form-card"><div class="card-head"><div><h2>Nova análise</h2><p>Consulte somente informações públicas disponíveis.</p></div></div>
+  <label>Nome de usuário do Instagram</label><div class="input-wrap"><span>@</span><input id="username" placeholder="exemplo" autocomplete="off"></div>
+  <div class="analysis-types"><label><input type="radio" name="type" value="profile" checked><span><b>Perfil público</b><small>Informações públicas do perfil</small></span></label><label><input type="radio" name="type" value="posts"><span><b>Conteúdo público</b><small>Organização de conteúdo disponível</small></span></label></div>
+  <div class="notice">Não solicite senhas e não tente acessar contas privadas. O sistema foi desenhado para trabalhar com informações públicas.</div>
+  <button class="primary full" id="start">Iniciar análise</button><div id="error" class="error"></div></div>
+</section>
+<section id="history" class="view">
+ <div class="card"><div class="card-head"><div><h2>Histórico</h2><p>Suas análises nesta sessão.</p></div></div><div id="historyList" class="empty">Nenhuma análise realizada ainda.</div></div>
+</section>
+<section id="results" class="view">
+ <div class="results-top"><div><div class="eyebrow">RESULTADO</div><h2 id="resultTitle">@perfil</h2><p id="resultMeta">Consulta concluída</p></div><button class="secondary" id="export">⇩ Exportar CSV</button></div>
+ <div class="stats"><div><span>Perfis encontrados</span><strong id="resultCount">0</strong></div><div><span>Com site</span><strong id="siteCount">0</strong></div><div><span>Verificação</span><strong>Público</strong></div></div>
+ <div class="card table-card"><div class="table-scroll"><table><thead><tr><th>Perfil</th><th>Nome</th><th>Biografia</th><th>Site público</th></tr></thead><tbody id="resultsBody"></tbody></table></div></div>
+ <p class="disclaimer">Os resultados desta interface representam dados públicos disponíveis. E-mail e telefone pessoais não são inferidos nem fabricados.</p>
+</section>
+</main>
+</div>
+<script src="app.js"></script>
+</body></html>
