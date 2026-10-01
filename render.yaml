@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: seguidores-instagram
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: INSTAGRAM_ACCESS_TOKEN
+        sync: false
+      - key: INSTAGRAM_BUSINESS_ACCOUNT_ID
+        sync: false
+      - key: GRAPH_API_VERSION
+        value: v24.0
